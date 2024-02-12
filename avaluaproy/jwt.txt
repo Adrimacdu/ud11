@@ -1,0 +1,28 @@
+ curl -X POST http://localhost:8888/api/auth/jwt/create/ --data 'email=admin@admin.com&password=admin'
+
+
+
+
+
+ "refresh":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcwNzg0MjQyNSwiaWF0IjoxNzA3NzU2MDI1LCJqdGkiOiJmZmM4YWU0NzYyMjc0MDhjYTAxNjViZTA0OTM2MzUxZSIsInVzZXJfaWQiOjF9.Tl9-xoOeCJlYqc2U-lrfaxx1fMHuK5f-YEYbOS-AnFA",
+
+"access":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA3NzU2NzUzLCJpYXQiOjE3MDc3NTYwMjUsImp0aSI6ImE3MDQwNzcwNWU3OTQ5NmNiZWU3MjBkNGIwZDczYWJkIiwidXNlcl9pZCI6MX0.OlV7QW1Bpby4bqDT8syn_IiiIH-DDTVgAWVm5WsAV7A"
+
+
+comprobar validez de token de acceso:
+
+curl -X POST http://localhost:8888/api/auth/jwt/verify/ --data 'token=[token]'
+
+para nuevo token de acceso cuando caduque:
+
+curl -X POST http://localhost:8888/api/auth/jwt/refresh/ --data 'refresh=[token_refresco]'
+
+
+curl -X POST http://localhost:8888/api/auth/jwt/refresh/ --data 'refresh=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcwNzg0MjQyNSwiaWF0IjoxNzA3NzU2MDI1LCJqdGkiOiJmZmM4YWU0NzYyMjc0MDhjYTAxNjViZTA0OTM2MzUxZSIsInVzZXJfaWQiOjF9.Tl9-xoOeCJlYqc2U-lrfaxx1fMHuK5f-YEYbOS-AnFA'
+
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA3NzU4NTk1LCJpYXQiOjE3MDc3NTYwMjUsImp0aSI6Ijk0YWEwYmU3NGZlNzQ5ZDk5NjFkNGRjNzNjNGZlNzAzIiwidXNlcl9pZCI6MX0.oAsiMv7R4WoumIo9JQ0X-eCSnaaeKMXQq50amQ1BIEw
+
+
+curl -LX POST http://localhost:8888/api/modulo_detail/ -H '[token]' -d
+"codigo=0612&nombre=Desarrollo Web en Entorno Cliente"
